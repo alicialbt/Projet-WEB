@@ -1,3 +1,5 @@
 ceci est un fichier text de qualitay
 
 Test de modif depuis github
+
+et aussi depuis ma machine locale et c'est dla balle
