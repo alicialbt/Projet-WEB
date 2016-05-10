@@ -1,75 +1,64 @@
-
-Skip to content
-This repository
-
-    Pull requests
-    Issues
-    Gist
-
-    @jcassou
-
-4
-0
-
-    0
-
-alicialbt/Projet-WEB
-Code
-Issues 0
-Pull requests 0
-Wiki
-Pulse
-Graphs
-Projet-WEB/new.php
-db165da 15 seconds ago
-@jcassou jcassou Create new.php
-45 lines (31 sloc) 998 Bytes
 <!DOCTYPE html>
-
 <html>
-<head>
-	<title>TC Advisor - Students</title>
-	<meta charset="utf-8">
-	<link href="site.css" rel="stylesheet">
-</head>
 
-<body>
-	<?php include("entete.php"); ?>
-	<nav id="nav01"></nav>
+  <head>
+  <title>TC Advisor</title>
+  <meta charset="utf-8">
+  <link href="site.css" rel="stylesheet">
+   <script src="jquery.js"></script>
+   <script src="liste_pays.js"></script>
+  </head>
+   <?php
+
+    session_start();
+  
+  
+  if(!isset($_SESSION['login'])){
+        
+      echo '<div id="logging">  
+      <form action="connexion.php" method="post">
+		  <input type="text" placeholder="Mail" required name="mail">
+   	  <input type="password" placeholder="Password" required name="pwd">
+		  <input type="submit" value="Connexion">
+      </form>
+		  </div>';
+      
+      echo '<div id="inscript">
+      <form action="inscription.php">
+      <input type="submit" value="Inscription">
+      </div>
+      ';
+  }
+  else{
+   echo 'Salut ';
+  echo $_SESSION['login'];
+  echo '<div id="deconnect">
+  <form action=deconnexion.php>
+  <input type="submit" value="Deconnexion">
+  </div>'; 
+  }
+  ?>
+
+  <body>
+  
+    <nav id="entete">
+	    <div id="entete">
+		   <h1>
+       <a href="first.php" style="text-decoration:none;">TC Around the World</a>
+       <img class="right" src="images/travel.png" alt="Travelling" height="150" width="250" style="float:right;margin:-40px 50px 0 20px;"/></h1>
+	    </div>
+    </nav>
+    <nav id="nav01"></nav>
+    
+    
+    <div id="main">	
+    <nav id="menu">		
+		<h2>Pays:</h2>
+    <div id="dropdownpays"><p> Pays déjà rentrés dans la base de donnée: </p></div>
+    <footer id="foot01"></footer>
+	 </div>
 	
-	<div id="main">
-		<h2>Banque de Données</h2>
-		
-		<form method="post" action="cible.php">
-			<p>Etudiants partis</p>
-    
-    <?php 
-      $bdd = new PDO('mysql:host=localhost; dbname=Membres;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-      $reponse = $bdd->query('SELECT * FROM Infos_membre');
-      while ($donnees = $reponse->fetch()) {
-    ?>
-      <p> <strong>Nom</strong> : <?php echo $donnees['Nom']; ?> <br />
-          <strong>Prénom</strong> : <?php echo $donnees['Prénom']; ?> <br />
-          <strong>Promotion</strong> : <?php echo $donnees['Promotion']; ?> <br />
-      </p>
-
-    <?php } 
-      $reponse->closeCursor();
-    ?>
-    
-
-		<footer id="foot01"></footer>
-	</div>
-
 	<script src="script.js"></script>
 
 </body>
 </html>
-
-
-	
-
-    Status API Training Shop Blog About 
-
-    © 2016 GitHub, Inc. Terms Privacy Security Contact Help 
-

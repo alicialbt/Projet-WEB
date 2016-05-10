@@ -60,7 +60,7 @@ table, th, td {
 th {
 	text-align: center;
 }
-
+td { width : 50% }
 table tr:nth-child(odd) {
 	background-color: #f1f1f1;
 }
@@ -94,3 +94,6 @@ ul#menu li a:hover {
 	background-color: #181D3D;
 }
 
+.stage{display :none}
+
+.entreprise{display:none}
