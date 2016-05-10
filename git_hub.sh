@@ -8,6 +8,7 @@ git add *
 git add LICENSE
 git commit -m "Mise à jour du projet"
 git remote add origin https://github.com/alicialbt/Projet-WEB
+git branch branchJean
 git checkout branchJean
 git remote -v
 git push origin master
